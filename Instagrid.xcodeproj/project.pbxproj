@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A40535B21C5A3C00031B120 /* ImageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A40535A21C5A3C00031B120 /* ImageAction.swift */; };
 		2A4F719721C00AF500C8D66F /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A4F719621C00AF500C8D66F /* ThirstySoftRegular.otf */; };
 		2A4F719921C00D3C00C8D66F /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A4F719821C00D3C00C8D66F /* Delm-Medium.otf */; };
 		2A52B51221BEB0B300253862 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A52B51121BEB0B300253862 /* AppDelegate.swift */; };
@@ -14,10 +15,10 @@
 		2A52B51721BEB0B300253862 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A52B51521BEB0B300253862 /* Main.storyboard */; };
 		2A52B51921BEB0B400253862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A52B51821BEB0B400253862 /* Assets.xcassets */; };
 		2A52B51C21BEB0B400253862 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A52B51A21BEB0B400253862 /* LaunchScreen.storyboard */; };
-		2AB75D1D21C3E67D00749DB2 /* StackViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB75D1C21C3E67D00749DB2 /* StackViewControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A40535A21C5A3C00031B120 /* ImageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAction.swift; sourceTree = "<group>"; };
 		2A4F719621C00AF500C8D66F /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		2A4F719821C00D3C00C8D66F /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		2A52B50E21BEB0B300253862 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,7 +28,6 @@
 		2A52B51821BEB0B400253862 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Instagrid/Supporting Files/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		2A52B51B21BEB0B400253862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A52B51D21BEB0B400253862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Instagrid/Supporting Files/Info.plist"; sourceTree = SOURCE_ROOT; };
-		2AB75D1C21C3E67D00749DB2 /* StackViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +71,7 @@
 		2A52B52321BEB23C00253862 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2A40535A21C5A3C00031B120 /* ImageAction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -79,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				2A52B51521BEB0B300253862 /* Main.storyboard */,
-				2AB75D1C21C3E67D00749DB2 /* StackViewControl.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -98,11 +98,19 @@
 				2A52B51121BEB0B300253862 /* AppDelegate.swift */,
 				2A52B51821BEB0B400253862 /* Assets.xcassets */,
 				2A52B51A21BEB0B400253862 /* LaunchScreen.storyboard */,
+				2A7671F521C584BD00E04250 /* Fonts */,
 				2A52B51D21BEB0B400253862 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A7671F521C584BD00E04250 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
 				2A4F719621C00AF500C8D66F /* ThirstySoftRegular.otf */,
 				2A4F719821C00D3C00C8D66F /* Delm-Medium.otf */,
 			);
-			path = "Supporting Files";
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,8 +187,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A52B51421BEB0B300253862 /* ViewController.swift in Sources */,
-				2AB75D1D21C3E67D00749DB2 /* StackViewControl.swift in Sources */,
 				2A52B51221BEB0B300253862 /* AppDelegate.swift in Sources */,
+				2A40535B21C5A3C00031B120 /* ImageAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

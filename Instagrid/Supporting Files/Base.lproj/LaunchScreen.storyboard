@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="ThirstySoftRegular.otf">
-            <string>ThirstySoftRegular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -23,21 +18,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBv-tv-xV2">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="d2T-GD-VCK">
                                 <rect key="frame" x="78.5" y="301" width="218" height="65"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instagrid" translatesAutoresizingMaskIntoConstraints="NO" id="Kt8-Pl-1Rh">
+                                        <rect key="frame" x="0.0" y="0.0" width="218" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Kt8-Pl-1Rh" secondAttribute="height" multiplier="218:65" id="q8A-7P-qr6"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="218" id="RMG-wa-IEv"/>
-                                    <constraint firstAttribute="width" secondItem="bBv-tv-xV2" secondAttribute="height" multiplier="218:65" id="uhc-TL-w1T"/>
+                                    <constraint firstAttribute="height" constant="65" id="3I7-Zd-LPJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kt8-Pl-1Rh" secondAttribute="trailing" id="FAV-Cv-Xa1"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kt8-Pl-1Rh" secondAttribute="bottom" id="HbR-yz-OyY"/>
+                                    <constraint firstItem="Kt8-Pl-1Rh" firstAttribute="leading" secondItem="d2T-GD-VCK" secondAttribute="leading" id="UNg-kj-vgW"/>
+                                    <constraint firstItem="Kt8-Pl-1Rh" firstAttribute="top" secondItem="d2T-GD-VCK" secondAttribute="top" id="tdn-dN-xDx"/>
+                                    <constraint firstAttribute="width" constant="218" id="wRu-xq-34a"/>
+                                    <constraint firstAttribute="width" secondItem="d2T-GD-VCK" secondAttribute="height" multiplier="218:65" id="ypc-JX-a6B"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="50"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.71764705882352942" green="0.84313725490196079" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bBv-tv-xV2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="3yH-SV-vaq"/>
-                            <constraint firstItem="bBv-tv-xV2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="U7j-dP-ouU"/>
+                            <constraint firstItem="d2T-GD-VCK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="7gt-of-Yrh"/>
+                            <constraint firstItem="d2T-GD-VCK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Phf-U0-M68"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -47,4 +52,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Instagrid" width="123" height="35"/>
+    </resources>
 </document>
