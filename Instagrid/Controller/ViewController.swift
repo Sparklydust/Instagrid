@@ -42,7 +42,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var swipeImageLogo: UIImageView!
     
     // Variable for images loading from the library
-    var imagePicker = UIImagePickerController()
     var imageManager = ImageManager()
     
     // Swipe Gesture incorporated into the main vue and the square view for sharing
@@ -75,19 +74,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     //MARK: - Load Images Buttons
     @IBAction func loadTopLeftImage(_ sender: Any) {
-        loadPhotoLibrary()
+        loadPhotoLibrary(setImageView: topLeftImage)
     }
     
     @IBAction func loadTopRightImage(_ sender: Any) {
-        loadPhotoLibrary()
+        loadPhotoLibrary(setImageView: topRightImage)
     }
     
     @IBAction func loadBottomLeftImage(_ sender: Any) {
-        loadPhotoLibrary()
+        loadPhotoLibrary(setImageView: bottomLeftImage)
     }
     
     @IBAction func loadBottomRightImage(_ sender: Any) {
-        loadPhotoLibrary()
+        loadPhotoLibrary(setImageView: bottomRightImage)
     }
     
     
@@ -181,25 +180,29 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     
     //MARK: - Method to load Photo Library
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func loadPhotoLibrary(setImageView imageView: UIImageView) {
         
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            
-            
-            topLeftImage.image = image
-            
+        imageManager.delegate = self
+        imageManager.sourceType = UIImagePickerController.SourceType.photoLibrary
+        imageManager.allowsEditing = false
+        
+        imageManager.completionHandler = { image in
+            if let image = image {
+                imageView.image = image
+            }
         }
-        self.dismiss(animated: true, completion: nil)
+        self.present(imageManager, animated: true)
     }
     
     
-    func loadPhotoLibrary() {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
-            imagePicker.allowsEditing = false
+        if let myPicker = picker as? ImageManager {
+            myPicker.completionHandler!(info[UIImagePickerController.InfoKey.originalImage] as? UIImage)
             
-            self.present(imagePicker, animated: true)
+            //topLeftImage.image = image
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     
