@@ -45,13 +45,13 @@
                                                                     <constraint firstAttribute="width" constant="40" id="HIl-ik-vxf"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6IR-Od-QdX" userLabel="topLeftImage">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6IR-Od-QdX" userLabel="topLeftImage">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="6IR-Od-QdX" secondAttribute="height" multiplier="1:1" id="yhb-jB-qch"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yL-Ou-HAb" userLabel="topLeftButton">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yL-Ou-HAb" userLabel="topLeftButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                                 <connections>
                                                                     <action selector="loadTopLeftImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ou9-Af-BTL"/>
@@ -87,13 +87,13 @@
                                                                     <constraint firstAttribute="height" constant="40" id="Tdf-cK-Bop"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KWW-Qe-Llh" userLabel="topRightImage">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KWW-Qe-Llh" userLabel="topRightImage">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="KWW-Qe-Llh" secondAttribute="height" multiplier="1:1" id="yPt-Qq-llH"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1s-eT-7wX" userLabel="topRightButton">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1s-eT-7wX" userLabel="topRightButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                                 <connections>
                                                                     <action selector="loadTopRightImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tdy-I4-MFH"/>
@@ -134,13 +134,13 @@
                                                                     <constraint firstAttribute="width" constant="40" id="nsa-Ss-hbU"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iwD-Gy-TJW" userLabel="bottomLeftImage">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iwD-Gy-TJW" userLabel="bottomLeftImage">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="iwD-Gy-TJW" secondAttribute="height" multiplier="1:1" id="YXc-lo-B3j"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZ8-QQ-yun" userLabel="bottomLeftButton">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZ8-QQ-yun" userLabel="bottomLeftButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                                 <connections>
                                                                     <action selector="loadBottomLeftImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="feM-wY-h9g"/>
@@ -176,13 +176,13 @@
                                                                     <constraint firstAttribute="height" constant="40" id="Ol9-Sq-eo3"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ph1-9E-UmV" userLabel="bottomRightImage">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ph1-9E-UmV" userLabel="bottomRightImage">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="ph1-9E-UmV" secondAttribute="height" multiplier="1:1" id="E0Y-ZO-eCT"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoA-nb-ijw" userLabel="bottomRightButton">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EoA-nb-ijw" userLabel="bottomRightButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                                 <connections>
                                                                     <action selector="loadBottomRightImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XpH-YO-DAg"/>
@@ -967,7 +967,7 @@
                                     <constraint firstAttribute="width" constant="15" id="AK2-6v-6Pg"/>
                                     <constraint firstAttribute="width" constant="9.5" id="BqI-h0-eKS"/>
                                     <constraint firstAttribute="width" secondItem="gBL-q2-dOu" secondAttribute="height" multiplier="9:10" id="UDK-d8-tw7">
-                                        <variation key="heightClass=compact" constant="-3.5500000000000007"/>
+                                        <variation key="heightClass=compact" constant="5.9499999999999993"/>
                                     </constraint>
                                     <constraint firstAttribute="width" secondItem="gBL-q2-dOu" secondAttribute="height" multiplier="5:3" id="sn1-L2-ohf"/>
                                     <constraint firstAttribute="height" constant="10" id="tkl-Lh-shz"/>
@@ -1016,7 +1016,7 @@
                             <constraint firstItem="fiJ-xl-RxA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="59" id="Ekj-KY-zTN"/>
                             <constraint firstItem="7CQ-mH-nCj" firstAttribute="centerY" secondItem="fiJ-xl-RxA" secondAttribute="centerY" id="FE8-uv-Iix"/>
                             <constraint firstItem="a9I-WO-qH3" firstAttribute="top" secondItem="gBL-q2-dOu" secondAttribute="bottom" constant="18" id="Fc3-Ou-mEm">
-                                <variation key="heightClass=compact" constant="13.5"/>
+                                <variation key="heightClass=compact" constant="18.5"/>
                             </constraint>
                             <constraint firstItem="D1q-QX-xhk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Gul-h9-Xqr"/>
                             <constraint firstItem="gBL-q2-dOu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HHa-vb-8SP"/>
@@ -1029,9 +1029,11 @@
                             <constraint firstItem="7CQ-mH-nCj" firstAttribute="centerY" secondItem="mD8-Qg-tAt" secondAttribute="centerY" id="OJN-nO-acQ"/>
                             <constraint firstItem="gBL-q2-dOu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RJl-VU-nqN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fiJ-xl-RxA" secondAttribute="bottom" constant="16" id="TF4-mw-pjB"/>
-                            <constraint firstItem="a9I-WO-qH3" firstAttribute="centerX" secondItem="gBL-q2-dOu" secondAttribute="centerX" id="TbF-ea-GvR"/>
+                            <constraint firstItem="a9I-WO-qH3" firstAttribute="centerX" secondItem="gBL-q2-dOu" secondAttribute="centerX" id="TbF-ea-GvR">
+                                <variation key="heightClass=compact" constant="-2.75"/>
+                            </constraint>
                             <constraint firstItem="gBL-q2-dOu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Tsf-H3-NRo">
-                                <variation key="heightClass=compact" constant="0.75"/>
+                                <variation key="heightClass=compact" constant="-1.75"/>
                             </constraint>
                             <constraint firstItem="7CQ-mH-nCj" firstAttribute="leading" secondItem="mD8-Qg-tAt" secondAttribute="trailing" constant="21" id="Twi-HA-OrM"/>
                             <constraint firstItem="mD8-Qg-tAt" firstAttribute="leading" secondItem="7CQ-mH-nCj" secondAttribute="leading" id="U2R-Dv-elT"/>
@@ -1069,21 +1071,21 @@
                                 <exclude reference="TF4-mw-pjB"/>
                                 <exclude reference="m2n-nU-Z1m"/>
                                 <exclude reference="mUp-EB-DG3"/>
-                                <exclude reference="CLJ-tv-IFz"/>
-                                <exclude reference="EfH-yi-pIB"/>
-                                <exclude reference="HHa-vb-8SP"/>
-                                <exclude reference="Tsf-H3-NRo"/>
-                                <exclude reference="bl2-TM-fKv"/>
-                                <exclude reference="58y-ym-HBY"/>
-                                <exclude reference="AE1-Rr-duy"/>
-                                <exclude reference="Ekj-KY-zTN"/>
-                                <exclude reference="cUm-ED-4us"/>
-                                <exclude reference="l3t-nT-MOX"/>
                                 <exclude reference="7kx-8x-Nnq"/>
                                 <exclude reference="Fc3-Ou-mEm"/>
                                 <exclude reference="TbF-ea-GvR"/>
                                 <exclude reference="fCC-bM-Lyy"/>
                                 <exclude reference="iMy-vK-yGQ"/>
+                                <exclude reference="58y-ym-HBY"/>
+                                <exclude reference="AE1-Rr-duy"/>
+                                <exclude reference="Ekj-KY-zTN"/>
+                                <exclude reference="cUm-ED-4us"/>
+                                <exclude reference="l3t-nT-MOX"/>
+                                <exclude reference="CLJ-tv-IFz"/>
+                                <exclude reference="EfH-yi-pIB"/>
+                                <exclude reference="HHa-vb-8SP"/>
+                                <exclude reference="Tsf-H3-NRo"/>
+                                <exclude reference="bl2-TM-fKv"/>
                                 <exclude reference="936-fA-GvO"/>
                                 <exclude reference="U2R-Dv-elT"/>
                                 <exclude reference="0wo-Yf-LAB"/>
@@ -1107,12 +1109,13 @@
                                 <include reference="m2n-nU-Z1m"/>
                                 <include reference="mUp-EB-DG3"/>
                                 <exclude reference="vso-Vb-fVv"/>
-                                <exclude reference="CLJ-tv-IFz"/>
-                                <exclude reference="EfH-yi-pIB"/>
-                                <exclude reference="HHa-vb-8SP"/>
-                                <exclude reference="RJl-VU-nqN"/>
-                                <include reference="Tsf-H3-NRo"/>
-                                <exclude reference="bl2-TM-fKv"/>
+                                <exclude reference="1Nm-qY-7Qa"/>
+                                <exclude reference="7kx-8x-Nnq"/>
+                                <include reference="Fc3-Ou-mEm"/>
+                                <include reference="TbF-ea-GvR"/>
+                                <exclude reference="UI0-Om-D14"/>
+                                <include reference="fCC-bM-Lyy"/>
+                                <include reference="iMy-vK-yGQ"/>
                                 <exclude reference="58y-ym-HBY"/>
                                 <exclude reference="AE1-Rr-duy"/>
                                 <exclude reference="BmR-8f-XtN"/>
@@ -1122,13 +1125,12 @@
                                 <exclude reference="l3t-nT-MOX"/>
                                 <exclude reference="slg-1c-dxl"/>
                                 <exclude reference="ycE-WK-1fw"/>
-                                <exclude reference="1Nm-qY-7Qa"/>
-                                <exclude reference="7kx-8x-Nnq"/>
-                                <include reference="Fc3-Ou-mEm"/>
-                                <include reference="TbF-ea-GvR"/>
-                                <exclude reference="UI0-Om-D14"/>
-                                <include reference="fCC-bM-Lyy"/>
-                                <include reference="iMy-vK-yGQ"/>
+                                <exclude reference="CLJ-tv-IFz"/>
+                                <exclude reference="EfH-yi-pIB"/>
+                                <exclude reference="HHa-vb-8SP"/>
+                                <exclude reference="RJl-VU-nqN"/>
+                                <include reference="Tsf-H3-NRo"/>
+                                <exclude reference="bl2-TM-fKv"/>
                                 <include reference="936-fA-GvO"/>
                                 <exclude reference="IKa-CI-2dN"/>
                                 <include reference="U2R-Dv-elT"/>
@@ -1148,6 +1150,9 @@
                                 <exclude reference="l8g-Z2-Dz2"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="e9c-V0-IHW" appends="YES" id="Oux-op-cVP"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="bottomLeftButton" destination="JZ8-QQ-yun" id="eA9-oC-8DA"/>
@@ -1162,6 +1167,7 @@
                         <outlet property="checkMark1" destination="bfx-2T-S0P" id="QPK-Rw-GcC"/>
                         <outlet property="checkMark2" destination="jaF-Mn-zN1" id="8Wd-8T-r95"/>
                         <outlet property="checkMark3" destination="hkN-y7-N4e" id="fom-Ey-J4q"/>
+                        <outlet property="mainViewOutlet" destination="8bC-Xf-vdC" id="QWU-UP-a6u"/>
                         <outlet property="swipeImageLogo" destination="gBL-q2-dOu" id="H0V-Ll-UyW"/>
                         <outlet property="swipeTextField" destination="cwL-GD-JuX" id="QVZ-ct-9yL"/>
                         <outlet property="topLeftButton" destination="3yL-Ou-HAb" id="Rso-pz-EFh"/>
@@ -1170,9 +1176,11 @@
                         <outlet property="topRightButtom" destination="c1s-eT-7wX" id="3K2-9X-MBN"/>
                         <outlet property="topRightImage" destination="KWW-Qe-Llh" id="Gfb-52-lhW"/>
                         <outlet property="topRightView" destination="cFH-Rn-Acl" id="Abv-HO-H1T"/>
+                        <outlet property="viewToShare" destination="fiJ-xl-RxA" id="eIO-xy-Cha"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="e9c-V0-IHW"/>
             </objects>
             <point key="canvasLocation" x="140" y="131.78410794602701"/>
         </scene>

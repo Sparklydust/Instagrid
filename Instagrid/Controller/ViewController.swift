@@ -25,12 +25,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var checkMark2: UIImageView!
     @IBOutlet weak var checkMark3: UIImageView!
     
-    // Outlets for downloading images
+    // Outlets for downloaded images
     @IBOutlet weak var topLeftImage: UIImageView!
     @IBOutlet weak var topRightImage: UIImageView!
     @IBOutlet weak var bottomLeftImage: UIImageView!
     @IBOutlet weak var bottomRightImage: UIImageView!
     
+    // Buttons for the action of loading a image
     @IBOutlet weak var topLeftButton: UIButton!
     @IBOutlet weak var topRightButtom: UIButton!
     @IBOutlet weak var bottomLeftButton: UIButton!
@@ -40,31 +41,22 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var swipeTextField: UITextField!
     @IBOutlet weak var swipeImageLogo: UIImageView!
     
+    // Variable for images loading from the library
+    var imagePicker = UIImagePickerController()
+    var imageManager = ImageManager()
+    
+    // Swipe Gesture incorporated into the main vue and the square view for sharing
+    @IBOutlet var mainViewOutlet: UIView!
+    @IBOutlet weak var viewToShare: UIView!
+    
     
     // The app opens with the cell 3 button style
     override func viewDidLoad() {
         super.viewDidLoad()
         
         selectCell3Style()
-        
-        
+        manageGestureRecognizeer()
     }
-    
-    
-//    // Method that tell when the phone rotate
-//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//
-//        let image = swipeImageLogo
-//        super.viewWillTransition(to: size, with: coordinator)
-//
-//        if UIDevice.current.orientation.isLandscape {
-//
-//            image!.image = UIImage(named: "swipeLeftLogo")
-//        } else {
-//            print("Portrait")
-//            //imageView.image = UIImage(named: const)
-//        }
-//    }
     
     
     //MARK: - Cells buttons
@@ -166,6 +158,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     
+    
+    
     // Methods that show each cell checkmark
     private func showCell1CheckMark() {
         checkMark1.isHidden = false
@@ -184,33 +178,77 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         checkMark1.isHidden = true
         checkMark2.isHidden = true
     }
-
+    
     
     //MARK: - Method to load Photo Library
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            
+            topLeftImage.image = image
+            
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     func loadPhotoLibrary() {
         
-        let image = UIImagePickerController()
-        image.delegate = self
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+            imagePicker.allowsEditing = false
+            
+            self.present(imagePicker, animated: true)
+    }
+    
+    
+    //MARK: - Method for rotated state actions
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
+        if let manageSwipeGesture = mainViewOutlet.gestureRecognizers {
+            for gr in manageSwipeGesture {
+                mainViewOutlet.removeGestureRecognizer(gr)
+            }
+        }
         
-        image.allowsEditing = false
+        manageGestureRecognizeer()
+    }
+    
+    
+    // Action that happens when the swipe gesture is triggered
+    @objc func mainViewSwiped(recognizer: UISwipeGestureRecognizer) {
         
-        self.present(image, animated: true) {
-            // After it is complete
+        // Code that use the share iphone platform
+        let sharePicturesViewFrame = UIActivityViewController(activityItems: [viewToShare!], applicationActivities: nil)
+        
+        present(sharePicturesViewFrame, animated: true, completion: nil)
+    }
+    
+    
+    func manageGestureRecognizeer() {
+        
+        // Variable of the swipe gesture
+        let swipeToShare = UISwipeGestureRecognizer(target: self, action: #selector(mainViewSwiped(recognizer:)))
+        
+        // Settings to use the swipe gesture on the main view
+        swipeToShare.numberOfTouchesRequired = 1
+        mainViewOutlet.isUserInteractionEnabled = true
+        mainViewOutlet.addGestureRecognizer(swipeToShare)
+        
+        
+        if UIDevice.current.orientation.isLandscape {
+            swipeTextField.text = "Swipe left to share"
+            swipeImageLogo.transform = CGAffineTransform(rotationAngle: -.pi / 2)
+            swipeToShare.direction = .left
+        }
+        else {
+            swipeTextField.text = "Swipe up to share"
+            swipeImageLogo.transform = CGAffineTransform(rotationAngle: 0)
+            swipeToShare.direction = .up
         }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            topLeftImage.image = image
-        }
-        else {
-            // Error message
-        }
-        
-        self.dismiss(animated: true, completion: nil)
-    }
-
+    
 }
 
