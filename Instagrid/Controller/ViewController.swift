@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ViewController: UIViewController {
     
     
     // Main stack view outlets for images, views control and buttons
@@ -48,13 +48,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet var mainViewOutlet: UIView!
     @IBOutlet weak var viewToShare: UIView!
     
+
+    @IBOutlet weak var topStackView: UIStackView!
+    @IBOutlet weak var bottomStackView: UIStackView!
+    
     
     // The app opens with the cell 3 button style
     override func viewDidLoad() {
         super.viewDidLoad()
         
         selectCell3Style()
-        manageGestureRecognizeer()
     }
     
     
@@ -93,26 +96,29 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     //MARK: - Selected Button Stack View Action Method
     private func selectCell1Style() {
         
+        cell1StackView()
+        showTopBottomStackView()
+        
         showCell1CheckMark()
         showCell1Button()
-        cell1StackView()
     }
-    
     
     private func selectCell2Style() {
         
+        cell2StackView()
+        showTopBottomStackView()
+        
         showCell2CheckMark()
         showCell2Button()
-        cell2StackView()
     }
-    
     
     private func selectCell3Style() {
         
+        cell3StackView()
+        showTopBottomStackView()
+        
         showCell3CheckMark()
         showCell3Button()
-        cell3StackView()
-        
     }
     
     
@@ -138,6 +144,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     // Methods that define the way each stack view cells get organised
     private func cell1StackView() {
+        topLeftView.isHidden = false
         topRightView.isHidden = true
         bottomLeftView.isHidden = false
         bottomRightView.isHidden = false
@@ -146,6 +153,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     private func cell2StackView() {
         topLeftView.isHidden = false
         topRightView.isHidden = false
+        bottomLeftView.isHidden = false
         bottomRightView.isHidden = true
     }
     
@@ -155,8 +163,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         bottomLeftView.isHidden = false
         bottomRightView.isHidden = false
     }
-    
-    
     
     
     // Methods that show each cell checkmark
@@ -179,13 +185,54 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     
+    //MARK: - Method for when the phone is shaken
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        
+        secretHideCheckMark()
+        secretHideCellButton()
+        secretShowOneImage()
+    }
+    
+    private func secretHideCheckMark() {
+        checkMark3.isHidden = true
+        checkMark1.isHidden = true
+        checkMark2.isHidden = true
+    }
+    
+    private func secretHideCellButton() {
+        cell1Button.backgroundColor = .clear
+        cell3Button.backgroundColor = .clear
+        cell2Button.backgroundColor = .clear
+    }
+    
+    private func secretShowOneImage() {
+        topStackView.isHidden = false
+        bottomStackView.isHidden = true
+        topLeftView.isHidden = true
+        topRightView.isHidden = false
+    }
+    
+    private func showTopBottomStackView() {
+        
+        topStackView.isHidden = false
+        bottomStackView.isHidden = false
+    }
+    
+}
+
+
+
+extension ViewController: UIImagePickerControllerDelegate {
+    
     //MARK: - Method to load Photo Library
     func loadPhotoLibrary(setImageView imageView: UIImageView) {
         
+        // Settings instance of Image Manager to be the delegate
         imageManager.delegate = self
         imageManager.sourceType = UIImagePickerController.SourceType.photoLibrary
         imageManager.allowsEditing = false
         
+        // For the image to go where the UIButton was clicked
         imageManager.completionHandler = { image in
             if let image = image {
                 imageView.image = image
@@ -199,37 +246,41 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         if let myPicker = picker as? ImageManager {
             myPicker.completionHandler!(info[UIImagePickerController.InfoKey.originalImage] as? UIImage)
-            
-            //topLeftImage.image = image
         }
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+
+
+
+extension ViewController: UINavigationControllerDelegate {
     
     //MARK: - Method for rotated state actions
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
+        // Setting the swipe gesture into the main view
         if let manageSwipeGesture = mainViewOutlet.gestureRecognizers {
+            
             for gr in manageSwipeGesture {
                 mainViewOutlet.removeGestureRecognizer(gr)
             }
         }
-        
-        manageGestureRecognizeer()
+        manageGesturesRecognizeer()
     }
     
     
     // Action that happens when the swipe gesture is triggered
     @objc func mainViewSwiped(recognizer: UISwipeGestureRecognizer) {
         
-        // Code that use the share iphone platform
+        // Code that use the share iphone menu
         let sharePicturesViewFrame = UIActivityViewController(activityItems: [viewToShare!], applicationActivities: nil)
         
         present(sharePicturesViewFrame, animated: true, completion: nil)
     }
     
     
-    func manageGestureRecognizeer() {
+    func manageGesturesRecognizeer() {
         
         // Variable of the swipe gesture
         let swipeToShare = UISwipeGestureRecognizer(target: self, action: #selector(mainViewSwiped(recognizer:)))
@@ -239,12 +290,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         mainViewOutlet.isUserInteractionEnabled = true
         mainViewOutlet.addGestureRecognizer(swipeToShare)
         
-        
+        // What happens when the iPhone is in landscape mode
         if UIDevice.current.orientation.isLandscape {
             swipeTextField.text = "Swipe left to share"
             swipeImageLogo.transform = CGAffineTransform(rotationAngle: -.pi / 2)
             swipeToShare.direction = .left
         }
+        // What happens when the iPhone is in portrait mode
         else {
             swipeTextField.text = "Swipe up to share"
             swipeImageLogo.transform = CGAffineTransform(rotationAngle: 0)
@@ -252,6 +304,4 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
     
-    
 }
-

@@ -900,10 +900,10 @@
                                 </variation>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="D1q-QX-xhk" userLabel="instagridStackView">
-                                <rect key="frame" x="118.5" y="28" width="138" height="39"/>
+                                <rect key="frame" x="125.5" y="28" width="124" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCb-sz-La8">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="39"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="39" id="tbH-1P-jIA"/>
                                         </constraints>
@@ -1161,6 +1161,7 @@
                         <outlet property="bottomRightButton" destination="EoA-nb-ijw" id="pbs-Z8-1zO"/>
                         <outlet property="bottomRightImage" destination="ph1-9E-UmV" id="eTa-PB-GNL"/>
                         <outlet property="bottomRightView" destination="zTu-bU-wHr" id="byh-cS-W7S"/>
+                        <outlet property="bottomStackView" destination="9Mb-Gb-fU6" id="nbk-Cl-XrH"/>
                         <outlet property="cell1Button" destination="EKM-jE-eWR" id="kv8-Tb-LDA"/>
                         <outlet property="cell2Button" destination="A8o-gm-fM1" id="dSj-xW-5ZY"/>
                         <outlet property="cell3Button" destination="cnY-vg-DOa" id="Rzd-Ol-Ra0"/>
@@ -1176,6 +1177,7 @@
                         <outlet property="topRightButtom" destination="c1s-eT-7wX" id="3K2-9X-MBN"/>
                         <outlet property="topRightImage" destination="KWW-Qe-Llh" id="Gfb-52-lhW"/>
                         <outlet property="topRightView" destination="cFH-Rn-Acl" id="Abv-HO-H1T"/>
+                        <outlet property="topStackView" destination="XT5-6o-lmh" id="naj-KT-cZj"/>
                         <outlet property="viewToShare" destination="fiJ-xl-RxA" id="eIO-xy-Cha"/>
                     </connections>
                 </viewController>

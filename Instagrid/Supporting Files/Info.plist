@@ -21,7 +21,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Your image is safe for being displayed</string>
+	<string>Your photos are safe to be displayed</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ThirstySoftRegular.otf</string>
