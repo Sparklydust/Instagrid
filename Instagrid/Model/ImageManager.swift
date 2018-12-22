@@ -12,6 +12,5 @@ import UIKit
 
 class ImageManager: UIImagePickerController {
     
-    
     var completionHandler: ((UIImage?) -> ())?
 }

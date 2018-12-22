@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     // Main stack view outlets for images, views control and buttons
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     @IBOutlet var mainViewOutlet: UIView!
     @IBOutlet weak var viewToShare: UIView!
     
-
+    
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var bottomStackView: UIStackView!
     
@@ -58,6 +58,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         selectCell3Style()
+        manageGesturesRecognizer()
     }
     
     
@@ -98,7 +99,6 @@ class ViewController: UIViewController {
         
         cell1StackView()
         showTopBottomStackView()
-        
         showCell1CheckMark()
         showCell1Button()
     }
@@ -107,7 +107,6 @@ class ViewController: UIViewController {
         
         cell2StackView()
         showTopBottomStackView()
-        
         showCell2CheckMark()
         showCell2Button()
     }
@@ -116,7 +115,6 @@ class ViewController: UIViewController {
         
         cell3StackView()
         showTopBottomStackView()
-        
         showCell3CheckMark()
         showCell3Button()
     }
@@ -124,15 +122,15 @@ class ViewController: UIViewController {
     
     // Methods that define the button background style for each cell
     private func showCell1Button() {
+        cell1Button.backgroundColor = UIColor(red: 78.0/255.0, green: 145.0/255.0, blue: 184.0/255.0, alpha: 0.6)
         cell2Button.backgroundColor = .clear
         cell3Button.backgroundColor = .clear
-        cell1Button.backgroundColor = UIColor(red: 78.0/255.0, green: 145.0/255.0, blue: 184.0/255.0, alpha: 0.6)
     }
     
     private func showCell2Button() {
         cell1Button.backgroundColor = .clear
-        cell3Button.backgroundColor = .clear
         cell2Button.backgroundColor = UIColor(red: 78.0/255.0, green: 145.0/255.0, blue: 184.0/255.0, alpha: 0.6)
+        cell3Button.backgroundColor = .clear
     }
     
     private func showCell3Button() {
@@ -187,7 +185,6 @@ class ViewController: UIViewController {
     
     //MARK: - Method for when the phone is shaken
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        
         secretHideCheckMark()
         secretHideCellButton()
         secretShowOneImage()
@@ -213,16 +210,10 @@ class ViewController: UIViewController {
     }
     
     private func showTopBottomStackView() {
-        
         topStackView.isHidden = false
         bottomStackView.isHidden = false
     }
     
-}
-
-
-
-extension ViewController: UIImagePickerControllerDelegate {
     
     //MARK: - Method to load Photo Library
     func loadPhotoLibrary(setImageView imageView: UIImageView) {
@@ -250,37 +241,35 @@ extension ViewController: UIImagePickerControllerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-}
-
-
-
-extension ViewController: UINavigationControllerDelegate {
     
-    //MARK: - Method for rotated state actions
+    //MARK: - Method for main view swipe action
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
         // Setting the swipe gesture into the main view
         if let manageSwipeGesture = mainViewOutlet.gestureRecognizers {
             
-            for gr in manageSwipeGesture {
-                mainViewOutlet.removeGestureRecognizer(gr)
+            for action in manageSwipeGesture {
+                mainViewOutlet.removeGestureRecognizer(action)
             }
         }
-        manageGesturesRecognizeer()
+        manageGesturesRecognizer()
     }
     
     
-    // Action that happens when the swipe gesture is triggered
+    // Action that happens when the swipe gesture is triggered to share content
     @objc func mainViewSwiped(recognizer: UISwipeGestureRecognizer) {
         
+        let link = NSURL(string: "http://www.openclassroooms.com")
+        
         // Code that use the share iphone menu
-        let sharePicturesViewFrame = UIActivityViewController(activityItems: [viewToShare!], applicationActivities: nil)
+        let sharePicturesViewFrame = UIActivityViewController(activityItems: [viewToShare!, link!], applicationActivities: nil)
         
         present(sharePicturesViewFrame, animated: true, completion: nil)
     }
     
     
-    func manageGesturesRecognizeer() {
+    //MARK: - Method for rotated state actions
+    func manageGesturesRecognizer() {
         
         // Variable of the swipe gesture
         let swipeToShare = UISwipeGestureRecognizer(target: self, action: #selector(mainViewSwiped(recognizer:)))
@@ -296,7 +285,7 @@ extension ViewController: UINavigationControllerDelegate {
             swipeImageLogo.transform = CGAffineTransform(rotationAngle: -.pi / 2)
             swipeToShare.direction = .left
         }
-        // What happens when the iPhone is in portrait mode
+            // What happens when the iPhone is in portrait mode
         else {
             swipeTextField.text = "Swipe up to share"
             swipeImageLogo.transform = CGAffineTransform(rotationAngle: 0)
