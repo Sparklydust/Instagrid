@@ -259,10 +259,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Action that happens when the swipe gesture is triggered to share content
     @objc func mainViewSwiped(recognizer: UISwipeGestureRecognizer) {
         
+        // Setting the UIView into an image to be shared
+        UIGraphicsBeginImageContext(viewToShare.bounds.size)
+        viewToShare.drawHierarchy(in: viewToShare.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
         let link = NSURL(string: "http://www.openclassroooms.com")
         
-        // Code that use the share iphone menu
-        let sharePicturesViewFrame = UIActivityViewController(activityItems: [viewToShare!, link!], applicationActivities: nil)
+        // Contents to share using the iPhone share solution
+        let sharePicturesViewFrame = UIActivityViewController(activityItems: [image!, link!], applicationActivities: nil)
         
         present(sharePicturesViewFrame, animated: true, completion: nil)
     }
@@ -294,3 +300,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
 }
+
+
