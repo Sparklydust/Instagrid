@@ -6,11 +6,9 @@
 //  Copyright © 2018 Roland Lariotte. All rights reserved.
 //
 
-
 import UIKit
 
-
 class ImageManager: UIImagePickerController {
-    
-    var completionHandler: ((UIImage?) -> ())?
+
+  var completionHandler: ((UIImage?) -> ())?
 }
